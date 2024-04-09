@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../Components/Buttons.dart';
-import '../Components/appColors.dart';
+import '../../components/Buttons.dart';
+import '../../components/appColors.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Login/welcomePage.dart'; // Importez la classe HomePage
+import 'package:footx/services/theme.dart';
+import 'screens/login/welcomePage.dart'; // Importez la classe HomePage
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      theme: ThemeClass.lightTheme,
+      darkTheme: ThemeClass.darkTheme,
       home: WelcomePage(), // Lancez la classe HomePage comme page d'accueil
     );
   }
