@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:footx/screens/password/passwordChanged.dart';
 import '../../components/Buttons.dart';
 import '../../components/appColors.dart';
 
@@ -43,6 +44,8 @@ class WelcomePage extends StatelessWidget {
                       onPressed: () {
                         // Action à effectuer lorsque le bouton est pressé
                         print('Bouton cliqué !');
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => const passwordChangedPage()));
                       },
                     ),
                     const SizedBox(height: 15),

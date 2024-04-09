@@ -9,14 +9,14 @@ class ThemeClass {
   Color whiteColor = const Color(0xFFFFFFFF);
 
   static ThemeData lightTheme = ThemeData(
-    primaryColor: ThemeData.light().scaffoldBackgroundColor,
+    primaryColor: ThemeData.light().primaryColor,
     colorScheme: const ColorScheme.light().copyWith(
         primary: _themeClass.primaryColor,
         secondary: _themeClass.accentColor),
   );
 
   static ThemeData darkTheme = ThemeData(
-    primaryColor: ThemeData.dark().scaffoldBackgroundColor,
+    primaryColor: ThemeData.dark().primaryColor,
     colorScheme: const ColorScheme.dark().copyWith(
       primary: _themeClass.greyColor,
     ),
