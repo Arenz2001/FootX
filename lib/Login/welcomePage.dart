@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../Components/Buttons.dart';
 import '../Components/appColors.dart';
 
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Connexion'),
+        title: const Text('Connexion'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Expanded(
+            const Expanded(
                 flex: 20,
                 child: Image(
                   image: AssetImage('assets/images/FootXLogo.png'
                   ),
                 ),
             ),
-            Expanded(
+            const Expanded(
                 flex: 40,
                 child: Image(
                   image: AssetImage('assets/images/photoJoueur.png'
@@ -30,7 +31,7 @@ class WelcomePage extends StatelessWidget {
                   height: 400,
                 )
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
                 flex: 20,
                 child:Column(
@@ -44,7 +45,7 @@ class WelcomePage extends StatelessWidget {
                         print('Bouton cliqué !');
                       },
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     CustomButton80(
                       color: AppColors.whiteColor,
                       text: "S'identifier",

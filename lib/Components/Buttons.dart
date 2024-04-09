@@ -8,12 +8,12 @@ class CustomButton80 extends StatelessWidget {
   final VoidCallback onPressed;
 
   const CustomButton80({
-    Key? key,
+    super.key,
     required this.color,
     required this.text,
     this.borderWidth = 1.0,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
