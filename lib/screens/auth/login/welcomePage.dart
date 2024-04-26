@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:footx/screens/password/passwordChanged.dart';
-import '../../components/Buttons.dart';
-import '../../components/appColors.dart';
+import 'package:flutter/widgets.dart';
+import 'package:footx/screens/auth/password/passwordChanged.dart';
+import 'package:footx/screens/auth/register/registerPage.dart';
+import '../../../components/Buttons.dart';
+import '../../../components/appColors.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -10,7 +12,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Connexion'),
+        //title: const Text('Connexion'),
       ),
       body: Center(
         child: Column(
@@ -19,7 +21,8 @@ class WelcomePage extends StatelessWidget {
             const Expanded(
                 flex: 20,
                 child: Image(
-                  image: AssetImage('assets/images/FootXLogo.png'
+                  width: 300,
+                  image: AssetImage('assets/images/logo.png'
                   ),
                 ),
             ),
@@ -36,7 +39,6 @@ class WelcomePage extends StatelessWidget {
             Expanded(
                 flex: 20,
                 child:Column(
-
                   children: [
                     CustomButton80(
                       color: AppColors.blackColor,
@@ -51,16 +53,22 @@ class WelcomePage extends StatelessWidget {
                     const SizedBox(height: 15),
                     CustomButton80(
                       color: AppColors.whiteColor,
-                      text: "S'identifier",
+                      text: "Créer un compte",
                       onPressed: () {
-                        // Action à effectuer lorsque le bouton est pressé
-                        print('Bouton cliqué !');
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => const registerPage()));
                       },
                     ),
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: const Text("Se connecter en invité",
+                          style: TextStyle(fontSize: 15)
+                      ),
+                      onTap: () => print('Texte cliqué !'),
+                    ), 
                   ],
                 ),
             )
-
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:footx/services/theme.dart';
-import 'screens/login/welcomePage.dart'; // Importez la classe HomePage
+import 'screens/auth/login/welcomePage.dart'; // Importez la classe HomePage
 
 void main() {
   runApp(const MyApp());
