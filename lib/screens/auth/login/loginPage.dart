@@ -3,24 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:footx/components/Buttons.dart';
 import 'package:footx/components/login/customTextField.dart';
-import 'package:footx/screens/auth/login/loginPage.dart';
+import 'package:footx/screens/auth/password/forgotPasswordPage.dart';
+import 'package:footx/screens/auth/register/registerPage.dart';
+// ignore: unused_import
 import 'package:footx/services/theme.dart';
 import 'package:footx/components/login/textWithLine.dart';
 import 'package:footx/components/login/customBackButton.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  final TextEditingController _usernameController = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +40,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         alignment: Alignment.topLeft,
                         child: CustomBackButton(
                           onPressed: () {
-                            Navigator.of(context).pop(); // Navigate back
+                            Navigator.of(context).pop();
                           },
                         ),
                       ),
                     ),
                     const SizedBox(height: 20),
                     const Text(
-                      'Bonjour ! Veuillez vous inscrire pour continuer.',
+                      'Ravi de vous revoir !',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -58,11 +57,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       textAlign: TextAlign.left,
                     ),
                     const SizedBox(height: 40),
-                    CustomTextField(
-                      hintText: 'Nom d\'utilisateur',
-                      controller: _usernameController,
-                    ),
-                    const SizedBox(height: 16),
                     CustomTextField(
                       hintText: 'Email',
                       controller: _emailController,
@@ -74,23 +68,31 @@ class _RegisterPageState extends State<RegisterPage> {
                       controller: _passwordController,
                       obscureText: true,
                     ),
-                    const SizedBox(height: 16),
-                    CustomTextField(
-                      hintText: 'Confirmer le mot de passe',
-                      controller: _confirmPasswordController,
-                      obscureText: true,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const ForgotPasswordPage()));
+                      },
+                      child: const Text(
+                        'Mot de passe oublié ?',
+                        style: TextStyle(
+                          color: Colors
+                              .blue,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.right,
+                      ),
                     ),
                     const SizedBox(height: 24),
                     CustomButton80(
                       color: theme.colorScheme.onBackground,
-                      text: 'S\'inscrire',
+                      text: 'Connexion',
                       onPressed: () {
-                        // Perform the registration action here
                       },
                     ),
                     const SizedBox(height: 45),
                     TextWithLines(
-                      text: 'Ou inscrivez-vous avec',
+                      text: 'Ou connectez-vous avec',
                       lineColor: theme.colorScheme.onSurface,
                       textStyle: TextStyle(
                         color: theme.colorScheme.onSurface,
@@ -120,23 +122,27 @@ class _RegisterPageState extends State<RegisterPage> {
                     style: TextStyle(
                       color: theme.colorScheme.onSurface,
                       fontSize: 16.0,
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight
+                          .normal,
                       fontFamily: 'Urbanist',
                     ),
                     children: <TextSpan>[
                       const TextSpan(
-                        text: 'Déjà inscrit ? ',
+                        text: 'Pas encore inscrit ? ',
                       ),
                       TextSpan(
-                        text: 'Connectez-vous',
+                        text: 'Inscrivez-vous',
                         style: const TextStyle(
-                          color: ThemeClass.linkColor,
-                          fontWeight: FontWeight.bold,
+                          color: Colors
+                              .blue,
+                          fontWeight: FontWeight
+                              .bold,
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const LoginPage()));
+                                builder: (context) =>
+                                    const RegisterPage()));
                           },
                       ),
                     ],

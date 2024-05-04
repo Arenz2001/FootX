@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:footx/screens/auth/password/passwordChanged.dart';
 import 'package:footx/screens/auth/register/registerPage.dart';
+import 'package:footx/screens/auth/login/loginPage.dart';
+import 'package:footx/services/theme.dart';
 import '../../../components/Buttons.dart';
 import '../../../components/appColors.dart';
 
@@ -22,7 +22,7 @@ class WelcomePage extends StatelessWidget {
                 flex: 20,
                 child: Image(
                   width: 300,
-                  image: AssetImage('assets/images/logo.png'
+                  image: AssetImage('assets/images/logo.png',
                   ),
                 ),
             ),
@@ -47,7 +47,7 @@ class WelcomePage extends StatelessWidget {
                         // Action à effectuer lorsque le bouton est pressé
                         print('Bouton cliqué !');
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => const passwordChangedPage()));
+                          MaterialPageRoute(builder: (context) => const LoginPage()));
                       },
                     ),
                     const SizedBox(height: 15),
@@ -56,13 +56,14 @@ class WelcomePage extends StatelessWidget {
                       text: "Créer un compte",
                       onPressed: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => const registerPage()));
+                          MaterialPageRoute(builder: (context) => const RegisterPage()));
                       },
                     ),
                     const SizedBox(height: 15),
                     GestureDetector(
                       child: const Text("Se connecter en invité",
-                          style: TextStyle(fontSize: 15)
+                          style: TextStyle(fontSize: 15, color: ThemeClass.linkColor,
+                        )
                       ),
                       onTap: () => print('Texte cliqué !'),
                     ), 

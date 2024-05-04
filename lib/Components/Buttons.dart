@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:footx/services/theme.dart';
 import 'appColors.dart';
 
 class CustomButton80 extends StatelessWidget {
@@ -34,7 +35,7 @@ class CustomButton80 extends StatelessWidget {
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8), // Rayon de bordure pour arrondir les angles
               side: BorderSide(
-                color: AppColors.blackColor,
+                color: ThemeClass.fullBlack,
                 width: borderWidth,
               )
             ),

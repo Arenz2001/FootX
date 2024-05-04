@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       theme: ThemeClass.lightTheme,
       darkTheme: ThemeClass.darkTheme,
-      home: WelcomePage(), // Lancez la classe HomePage comme page d'accueil
+      home: const WelcomePage(), // Lancez la classe HomePage comme page d'accueil
     );
   }
 }
