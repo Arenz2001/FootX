@@ -98,7 +98,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       TextSpan(
                         text: 'Connexion',
                         style: const TextStyle(
-                          color: ThemeClass.linkColor,
+                          color: ThemeClass.brightBlue,
                           fontWeight: FontWeight.bold,
                         ),
                         recognizer: TapGestureRecognizer()

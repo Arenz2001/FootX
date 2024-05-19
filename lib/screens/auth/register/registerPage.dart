@@ -130,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextSpan(
                         text: 'Connectez-vous',
                         style: const TextStyle(
-                          color: ThemeClass.linkColor,
+                          color: ThemeClass.brightBlue,
                           fontWeight: FontWeight.bold,
                         ),
                         recognizer: TapGestureRecognizer()

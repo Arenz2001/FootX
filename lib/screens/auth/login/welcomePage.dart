@@ -62,7 +62,7 @@ class WelcomePage extends StatelessWidget {
                     const SizedBox(height: 15),
                     GestureDetector(
                       child: const Text("Se connecter en invité",
-                          style: TextStyle(fontSize: 15, color: ThemeClass.linkColor,
+                          style: TextStyle(fontSize: 15, color: ThemeClass.brightBlue,
                         )
                       ),
                       onTap: () => print('Texte cliqué !'),

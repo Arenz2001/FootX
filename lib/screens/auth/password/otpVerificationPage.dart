@@ -145,7 +145,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                       TextSpan(
                         text: 'Renvoyer',
                         style: const TextStyle(
-                          color: ThemeClass.linkColor,
+                          color: ThemeClass.brightBlue,
                           fontWeight: FontWeight.bold,
                         ),
                         recognizer: TapGestureRecognizer()
