@@ -7,12 +7,12 @@ class TextWithLines extends StatelessWidget {
   final TextStyle? textStyle;
 
   const TextWithLines({
-    Key? key,
+    super.key,
     required this.text,
     this.lineColor = Colors.grey,
     this.lineHeight = 1.0,
     this.textStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class TextWithLines extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: Container(
-            margin: EdgeInsets.only(right: 10),
+            margin: const EdgeInsets.only(right: 10),
             child: Divider(
               color: lineColor,
               height: lineHeight,
@@ -34,7 +34,7 @@ class TextWithLines extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            margin: EdgeInsets.only(left: 10),
+            margin: const EdgeInsets.only(left: 10),
             child: Divider(
               color: lineColor,
               height: lineHeight,

@@ -10,17 +10,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
+  int _currentIndex = 1;
+
+  final List<Widget> _pages = [
+    const Placeholder(), // Remplacez ceci par votre page d'équipe
+    const HomeContent(), // Votre contenu actuel de la page d'accueil
+    const Placeholder(), // Remplacez ceci par votre page de club
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final isDarkMode = theme.brightness == Brightness.dark;
+    //final isDarkMode = theme.brightness == Brightness.dark;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("FOOTX"),
+        title: const Text("PLAY METRICS"),
         actions: [
           IconButton(
             onPressed: () {
@@ -34,180 +46,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const Text(
-                'CJF Fleury-les-Aubrais',
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                'Prochains Matchs : U14 - 2',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: isDarkMode ? ThemeClass.brightBlue : ThemeClass.deepBlue,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: DefaultTextStyle.merge(
-                  style: const TextStyle(color: ThemeClass.offWhite),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Match à domicile',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Domicile'),
-                          Text('Sam.18 mars'),
-                          Text('Visiteur'),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'CJF',
-                            style: TextStyle(fontSize: 24),
-                          ),
-                          Text('11:30'),
-                          Text(
-                            'USO',
-                            style: TextStyle(fontSize: 24),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Convocation : 10:20'),
-                          Text('Stade - Fernand Sastre'),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      Center(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: ThemeClass.offWhite,
-                          ),
-                          child: const Text(
-                            'CONVOQUE',
-                            style: TextStyle(color: ThemeClass.fullBlack),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Prochains Entraînements : U14 - 2',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: colorScheme.surface,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'ENTRAINEMENT',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'U14 - 18:00',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    const Text(
-                      'Lundi 11 mars - Stade Benoit Frachon',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        _DayBox(day: 'L', selected: true),
-                        _DayBox(day: 'M', selected: false),
-                        _DayBox(day: 'M', selected: false),
-                        _DayBox(day: 'J', selected: false),
-                        _DayBox(day: 'V', selected: false),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Center(
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Stade - Benoit Frachon',
-                          style: TextStyle(
-                            color: colorScheme.secondary,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    const Center(
-                      child: Text(
-                        'Du lundi 11 mars au 17 mars 2024',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+        onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.sports_soccer),
@@ -224,6 +69,186 @@ class _HomePageState extends State<HomePage> {
         ],
         selectedItemColor: colorScheme.secondary,
         unselectedItemColor: colorScheme.onSurface,
+      ),
+    );
+  }
+}
+
+class HomeContent extends StatelessWidget {
+  const HomeContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final isDarkMode = theme.brightness == Brightness.dark;
+
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Text(
+              'CJF Fleury-les-Aubrais',
+              style: TextStyle(
+                fontSize: 35,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Prochains Matchs : U14 - 2',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: isDarkMode ? ThemeClass.brightBlue : ThemeClass.deepBlue,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: DefaultTextStyle.merge(
+                style: const TextStyle(color: ThemeClass.offWhite),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Match à domicile',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Domicile'),
+                        Text('Sam.18 mars'),
+                        Text('Visiteur'),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'CJF',
+                          style: TextStyle(fontSize: 24),
+                        ),
+                        Text('11:30'),
+                        Text(
+                          'USO',
+                          style: TextStyle(fontSize: 24),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Convocation : 10:20'),
+                        Text('Stade - Fernand Sastre'),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: ThemeClass.offWhite,
+                        ),
+                        child: const Text(
+                          'CONVOQUE',
+                          style: TextStyle(color: ThemeClass.fullBlack),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Prochains Entraînements : U14 - 2',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: colorScheme.surface,
+                border: Border.all(color: colorScheme.secondary),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'ENTRAINEMENT',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'U14 - 18:00',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  const Text(
+                    'Lundi 11 mars - Stade Benoit Frachon',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _DayBox(day: 'L', selected: true),
+                      _DayBox(day: 'M', selected: false),
+                      _DayBox(day: 'M', selected: false),
+                      _DayBox(day: 'J', selected: false),
+                      _DayBox(day: 'V', selected: false),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Stade - Benoit Frachon',
+                        style: TextStyle(
+                          color: colorScheme.onPrimary,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  const Center(
+                    child: Text(
+                      'Du lundi 11 mars au 17 mars 2024',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

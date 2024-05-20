@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:footx/components/Buttons.dart';
 import 'package:footx/components/login/customTextField.dart';
 import 'package:footx/components/login/customBackButton.dart';
-import 'package:footx/screens/auth/login/loginPage.dart';
 import 'package:footx/screens/auth/password/passwordChanged.dart';
-import 'package:footx/services/theme.dart';
 
 class CreateNewPasswordPage extends StatefulWidget {
   const CreateNewPasswordPage({super.key});
@@ -79,7 +76,7 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
                     ),
                     const SizedBox(height: 24),
                     CustomButton80(
-                      color: theme.colorScheme.onBackground,
+                      color: theme.colorScheme.onSurface,
                       text: 'Réinitialiser le mot de passe',
                       onPressed: () {
                         // Logic for password resetting
@@ -93,7 +90,7 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                title: Text('Erreur'),
+                                title: const Text('Erreur'),
                                 content: const Text(
                                     'Les mots de passe ne correspondent pas. Veuillez réessayer.'),
                                 actions: <Widget>[ 
@@ -101,7 +98,7 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
                                     onPressed: () {
                                       Navigator.of(context).pop();
                                     },
-                                    child: Text('OK'),
+                                    child: const Text('OK'),
                                   ),
                                 ],
                               );

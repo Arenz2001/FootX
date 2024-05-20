@@ -2,14 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:footx/components/Buttons.dart';
-import 'package:footx/components/login/customTextField.dart';
 import 'package:footx/components/login/customBackButton.dart';
-import 'package:footx/screens/auth/login/loginPage.dart';
 import 'package:footx/screens/auth/password/createNewPasswordPage.dart';
 import 'package:footx/services/theme.dart';
 
 class OTPVerificationPage extends StatefulWidget {
-  const OTPVerificationPage({Key? key}) : super(key: key);
+  const OTPVerificationPage({super.key});
 
   @override
   _OTPVerificationPageState createState() => _OTPVerificationPageState();
@@ -113,7 +111,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                     ),
                     const SizedBox(height: 24),
                     CustomButton80(
-                      color: theme.colorScheme.onBackground,
+                      color: theme.colorScheme.onSurface,
                       text: 'Vérifier',
                       onPressed: () {
                         // Implement OTP verification logic here
@@ -178,7 +176,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
         style: const TextStyle(fontSize: 24),
         decoration: InputDecoration(
           counterText: "",
-          contentPadding: EdgeInsets.symmetric(vertical: 10),
+          contentPadding: const EdgeInsets.symmetric(vertical: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 2, color: Colors.grey[300]!),
             borderRadius: BorderRadius.circular(8),

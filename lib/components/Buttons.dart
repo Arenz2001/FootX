@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:footx/services/theme.dart';
-import 'appColors.dart';
 
 class CustomButton80 extends StatelessWidget {
   final Color color;
@@ -30,8 +29,8 @@ class CustomButton80 extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(color),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          backgroundColor: WidgetStateProperty.all<Color>(color),
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8), // Rayon de bordure pour arrondir les angles
               side: BorderSide(
@@ -40,7 +39,7 @@ class CustomButton80 extends StatelessWidget {
               )
             ),
           ),
-          elevation: MaterialStateProperty.all<double>(4), // Ombre du bouton
+          elevation: WidgetStateProperty.all<double>(4), // Ombre du bouton
         ),
         child: Text(
           text,

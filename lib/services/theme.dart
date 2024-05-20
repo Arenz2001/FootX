@@ -51,7 +51,7 @@ class ThemeClass {
     brightness: Brightness.light,
     primaryColor: darkGray,
     scaffoldBackgroundColor: offWhite,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       color: offWhite,
       elevation: 0,
       iconTheme: IconThemeData(color: offBlack),
@@ -66,8 +66,6 @@ class ThemeClass {
       onPrimary: offWhite,
       secondary: brightBlue,
       onSecondary: offWhite,
-      background: offWhite,
-      onBackground: offBlack,
       surface: lightGray,
       onSurface: offBlack,
       error: Colors.red.shade400,
@@ -81,14 +79,14 @@ class ThemeClass {
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide.none,
       ),
-      hintStyle: TextStyle(color: lightGray, fontFamily: 'Urbanist'),
+      hintStyle: const TextStyle(color: lightGray, fontFamily: 'Urbanist'),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(darkGray),
-        foregroundColor: MaterialStateProperty.all(offWhite),
-        textStyle: MaterialStateProperty.all(
-            TextStyle(fontFamily: 'Urbanist', fontWeight: FontWeight.bold)),
+        backgroundColor: WidgetStateProperty.all(darkGray),
+        foregroundColor: WidgetStateProperty.all(offWhite),
+        textStyle: WidgetStateProperty.all(
+            const TextStyle(fontFamily: 'Urbanist', fontWeight: FontWeight.bold)),
       ),
     ),
   );
@@ -98,7 +96,7 @@ class ThemeClass {
     brightness: Brightness.dark,
     primaryColor: lightGray,
     scaffoldBackgroundColor: darkGray,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       color: darkGray,
       elevation: 0,
       iconTheme: IconThemeData(color: offWhite),
@@ -113,8 +111,6 @@ class ThemeClass {
       onPrimary: fullBlack,
       secondary: brightBlue,
       onSecondary: offWhite,
-      background: darkGray,
-      onBackground: offWhite,
       surface: offBlack,
       onSurface: offWhite,
       error: Colors.red.shade700,
@@ -128,14 +124,14 @@ class ThemeClass {
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide.none,
       ),
-      hintStyle: TextStyle(color: lightGray, fontFamily: 'Urbanist'),
+      hintStyle: const TextStyle(color: lightGray, fontFamily: 'Urbanist'),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(lightGray),
-        foregroundColor: MaterialStateProperty.all(fullBlack),
-        textStyle: MaterialStateProperty.all(
-            TextStyle(fontFamily: 'Urbanist', fontWeight: FontWeight.bold)),
+        backgroundColor: WidgetStateProperty.all(lightGray),
+        foregroundColor: WidgetStateProperty.all(fullBlack),
+        textStyle: WidgetStateProperty.all(
+            const TextStyle(fontFamily: 'Urbanist', fontWeight: FontWeight.bold)),
       ),
     ),
   );

@@ -11,7 +11,7 @@ import 'package:footx/components/login/textWithLine.dart';
 import 'package:footx/components/login/customBackButton.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 24),
                     CustomButton80(
-                      color: theme.colorScheme.onBackground,
+                      color: theme.colorScheme.onSurface,
                       text: 'Connexion',
                       onPressed: () {
                       },

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:footx/components/Buttons.dart'; // Assurez-vous que ce bouton est approprié pour votre cas
-import 'package:footx/components/login/customBackButton.dart';
-import 'package:footx/services/theme.dart';
 
 class PasswordChangedPage extends StatelessWidget {
   const PasswordChangedPage({super.key});

@@ -67,7 +67,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     ),
                     const SizedBox(height: 24),
                     CustomButton80(
-                      color: theme.colorScheme.onBackground,
+                      color: theme.colorScheme.onSurface,
                       text: 'Confirmer',
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(

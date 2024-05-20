@@ -9,7 +9,7 @@ import 'package:footx/components/login/textWithLine.dart';
 import 'package:footx/components/login/customBackButton.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -82,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const SizedBox(height: 24),
                     CustomButton80(
-                      color: theme.colorScheme.onBackground,
+                      color: theme.colorScheme.onSurface,
                       text: 'S\'inscrire',
                       onPressed: () {
                         // Perform the registration action here

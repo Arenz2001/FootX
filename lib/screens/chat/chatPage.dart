@@ -1,14 +1,11 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
@@ -204,19 +201,19 @@ class _ChatPageState extends State<ChatPage> {
         author: _otherUser,
         createdAt: DateTime.now().subtract(const Duration(minutes: 5)).millisecondsSinceEpoch,
         id: const Uuid().v4(),
-        text: "Hello! How can I help you today?",
+        text: "Troisème message d'exemple",
       ),
       types.TextMessage(
         author: _user,
         createdAt: DateTime.now().subtract(const Duration(minutes: 4)).millisecondsSinceEpoch,
         id: const Uuid().v4(),
-        text: "Hi! I have a question about my order.",
+        text: "Message de notre pov",
       ),
       types.TextMessage(
         author: _otherUser,
         createdAt: DateTime.now().subtract(const Duration(minutes: 3)).millisecondsSinceEpoch,
         id: const Uuid().v4(),
-        text: "Sure, what would you like to know?",
+        text: "Message d'exemple pour tester l'application.",
       ),
     ];
 
@@ -247,6 +244,12 @@ class _ChatPageState extends State<ChatPage> {
         theme: DefaultChatTheme(
           primaryColor: colorScheme.primary,
           backgroundColor: theme.scaffoldBackgroundColor,
+          sentMessageBodyTextStyle: TextStyle(
+            color: isDarkMode ? colorScheme.onPrimary : colorScheme.primary,
+          ),
+          receivedMessageBodyTextStyle: TextStyle(
+            color: isDarkMode ? colorScheme.onPrimary : colorScheme.primary,
+          ),
           inputBackgroundColor: isDarkMode ? colorScheme.surface : colorScheme.onSurface,
           inputTextColor: isDarkMode ? colorScheme.onSurface : colorScheme.surface,
           inputBorderRadius: BorderRadius.circular(16),
