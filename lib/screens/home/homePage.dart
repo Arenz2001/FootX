@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:footx/screens/chat/chatPage.dart';
 import 'package:footx/services/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,7 +23,9 @@ class _HomePageState extends State<HomePage> {
         title: const Text("FOOTX"),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ChatPage()));
+            },
             icon: const Icon(Icons.chat_bubble_outline),
           ),
           IconButton(
