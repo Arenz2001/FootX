@@ -30,7 +30,7 @@ class TextWithLines extends StatelessWidget {
         ),
         Text(
           text,
-          style: textStyle ?? Theme.of(context).textTheme.bodyText2,
+          style: textStyle ?? Theme.of(context).textTheme.bodyMedium,
         ),
         Expanded(
           child: Container(
