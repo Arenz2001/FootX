@@ -22,44 +22,42 @@ class WelcomePage extends StatelessWidget {
             Expanded(
               flex: 20,
               child: SvgPicture.asset(
-                'assets/icons/app/logo.svg',
+                'assets/icons/app/logo-mid.svg',
                 width: 400,
               ),
             ),
             const SizedBox(height: 20),
-            Expanded(
-              flex: 20,
-              child: Column(
-                children: [
-                  CustomButton80(
-                    color: AppColors.blackColor,
-                    text: 'Se connecter',
-                    onPressed: () {
-                      // Action à effectuer lorsque le bouton est pressé
-                      print('Bouton cliqué !');
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
-                    },
-                  ),
-                  const SizedBox(height: 15),
-                  CustomButton80(
-                    color: AppColors.whiteColor,
-                    text: "Créer un compte",
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const RegisterPage()));
-                    },
-                  ),
-                  const SizedBox(height: 15),
-                  GestureDetector(
-                    child: const Text("Se connecter en invité",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: ThemeClass.brightBlue,
-                        )),
-                    onTap: () => print('Texte cliqué !'),
-                  ),
-                ],
-              ),
-            )
+            Column(
+              children: [
+                CustomButton80(
+                  color: AppColors.blackColor,
+                  text: 'Se connecter',
+                  onPressed: () {
+                    // Action à effectuer lorsque le bouton est pressé
+                    print('Bouton cliqué !');
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
+                  },
+                ),
+                const SizedBox(height: 15),
+                CustomButton80(
+                  color: AppColors.whiteColor,
+                  text: "Créer un compte",
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const RegisterPage()));
+                  },
+                ),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  child: const Text("Se connecter en invité",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: ThemeClass.brightBlue,
+                      )),
+                  onTap: () => print('Texte cliqué !'),
+                ),
+              ],
+            ),
+            SizedBox(height: 80),
           ],
         ),
       ),

@@ -19,8 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -135,8 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const LoginPage()));
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
                           },
                       ),
                     ],

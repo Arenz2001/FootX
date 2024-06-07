@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:footx/screens/chat/chatPage.dart';
 import 'package:footx/services/theme.dart';
 
@@ -32,17 +33,22 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("PLAY METRICS"),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.account_circle_outlined),
+          iconSize: 30,
+        ),
+        title: SvgPicture.asset(
+          'assets/icons/app/logo-text.svg',
+          width: 200,
+        ),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ChatPage()));
             },
             icon: const Icon(Icons.chat_bubble_outline),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.account_circle_outlined),
+            iconSize: 30,
           ),
         ],
       ),
@@ -106,9 +112,17 @@ class HomeContent extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Container(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 color: isDarkMode ? ThemeClass.brightBlue : ThemeClass.deepBlue,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
                 borderRadius: BorderRadius.circular(8.0),
               ),
               child: DefaultTextStyle.merge(
@@ -116,11 +130,13 @@ class HomeContent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Match à domicile',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                    const Center(
+                      child: Text(
+                        'Samedi 18 mars',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -128,7 +144,6 @@ class HomeContent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Domicile'),
-                        Text('Sam.18 mars'),
                         Text('Visiteur'),
                       ],
                     ),
@@ -138,12 +153,12 @@ class HomeContent extends StatelessWidget {
                       children: [
                         Text(
                           'CJF',
-                          style: TextStyle(fontSize: 24),
+                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                         ),
                         Text('11:30'),
                         Text(
                           'USO',
-                          style: TextStyle(fontSize: 24),
+                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                         ),
                       ],
                     ),

@@ -32,12 +32,11 @@ class CustomButton80 extends StatelessWidget {
           backgroundColor: WidgetStateProperty.all<Color>(color),
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8), // Rayon de bordure pour arrondir les angles
-              side: BorderSide(
-                color: ThemeClass.fullBlack,
-                width: borderWidth,
-              )
-            ),
+                borderRadius: BorderRadius.circular(8), // Rayon de bordure pour arrondir les angles
+                side: BorderSide(
+                  color: ThemeClass.fullBlack,
+                  width: borderWidth,
+                )),
           ),
           elevation: WidgetStateProperty.all<double>(4), // Ombre du bouton
         ),
@@ -47,7 +46,7 @@ class CustomButton80 extends StatelessWidget {
             color: _getTextColor(color),
             fontWeight: FontWeight.w600, // Police semi-gras
             fontFamily: 'Urbanist', // Police Urbanist
-            fontSize: 15,
+            fontSize: 18,
           ),
         ),
       ),

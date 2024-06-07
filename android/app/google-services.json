@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "973642386839",
+    "project_id": "playmetrics-eee2b",
+    "storage_bucket": "playmetrics-eee2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973642386839:android:1a2850d6a05f0991f388d2",
+        "android_client_info": {
+          "package_name": "com.playmetrics.playmetrics"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxYiaVB8aa3bDTrvwpzN9AErjz0a8OYqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

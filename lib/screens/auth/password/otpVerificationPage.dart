@@ -99,24 +99,19 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _buildOTPField(context, _firstController,
-                            _firstFocusNode, _secondFocusNode),
-                        _buildOTPField(context, _secondController,
-                            _secondFocusNode, _thirdFocusNode),
-                        _buildOTPField(context, _thirdController,
-                            _thirdFocusNode, _fourthFocusNode),
-                        _buildOTPField(
-                            context, _fourthController, _fourthFocusNode, null),
+                        _buildOTPField(context, _firstController, _firstFocusNode, _secondFocusNode),
+                        _buildOTPField(context, _secondController, _secondFocusNode, _thirdFocusNode),
+                        _buildOTPField(context, _thirdController, _thirdFocusNode, _fourthFocusNode),
+                        _buildOTPField(context, _fourthController, _fourthFocusNode, null),
                       ],
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 50),
                     CustomButton80(
                       color: theme.colorScheme.onSurface,
                       text: 'Vérifier',
                       onPressed: () {
                         // Implement OTP verification logic here
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const CreateNewPasswordPage()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CreateNewPasswordPage()));
                       },
                     ),
                   ],
@@ -162,8 +157,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
     );
   }
 
-    Widget _buildOTPField(BuildContext context, TextEditingController controller,
-      FocusNode currentFocusNode, FocusNode? nextFocusNode) {
+  Widget _buildOTPField(BuildContext context, TextEditingController controller, FocusNode currentFocusNode, FocusNode? nextFocusNode) {
     return SizedBox(
       width: 70,
       height: 60,
@@ -182,8 +176,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
             borderRadius: BorderRadius.circular(8),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(width: 2, color: Theme.of(context).primaryColor),
+            borderSide: BorderSide(width: 2, color: Theme.of(context).primaryColor),
             borderRadius: BorderRadius.circular(8),
           ),
         ),
